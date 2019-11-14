@@ -1,5 +1,5 @@
 //
-// CMSF.hpp Count-Min Sketch with Fingerprints implemented by J. Martínez, this code used Daniel Alabi's Count-Min Sketch 
+// CMSF.hpp Count-Min Sketch with Fingerprints implemented by J. MartÃ­nez, this code used Daniel Alabi's Count-Min Sketch 
 // as a starting point https://github.com/alabid/countminsketch
 //
 // To improve accuracy of the counter, Count-Min Sketch stores a fingerprint of the last element x that has
@@ -25,18 +25,18 @@ class CMSF {
 			 short int conservative,
 			 short int fp_limit);	                                // class constructor
 
-		virtual ~CMSF();											// class destructor
+		virtual ~CMSF();						// class destructor
 
-		unsigned int width() { return table_width; };				// gets table width
-		unsigned int depth() { return table_depth; };				// gets table depth
+		unsigned int width() { return table_width; };			// gets table width
+		unsigned int depth() { return table_depth; };			// gets table depth
 
-		void update(uint64_t item);									// updates the count of a numeric item
-		void update(const char *item);								// updates the count of a string item
+		void update(uint64_t item);					// updates the count of a numeric item
+		void update(const char *item);					// updates the count of a string item
 
-		float estimate(uint64_t item);								// estimates the count of a numeric item
-		float estimate(const char *item);							// estimates the count of a string item
+		float estimate(uint64_t item);					// estimates the count of a numeric item
+		float estimate(const char *item);				// estimates the count of a string item
 
-		float totalcount() { return total; };						// gets the count of all the items stored in the sketch		
+		float totalcount() { return total; };				// gets the count of all the items stored in the sketch		
 
 	private:
 
@@ -47,21 +47,21 @@ class CMSF {
 				short int fingerprint;
 		};
 
-		short int fingerprint_bits;									// bits used for the fingerprint
-		short int conservative_update;								// conservative update
-		short int fingerprint_limit;								// fingerprint limit
-		float total;												// total count
-		unsigned int table_width, table_depth;						// width and depth of the count table
+		short int fingerprint_bits;					// bits used for the fingerprint
+		short int conservative_update;					// conservative update
+		short int fingerprint_limit;					// fingerprint limit
+		float total;							// total count
+		unsigned int table_width, table_depth;				// width and depth of the count table
 
-		KeyCounter **table;											// counter and fingerprint table
+		KeyCounter **table;						// counter and fingerprint table
 
-		unsigned int **hashes;										// hash values
+		unsigned int **hashes;						// hash values
 
 		int hash(uint64_t key, int i, int s);
 		int RSHash(uint64_t key);
 		int JSHash(uint64_t key);
 
-		uint64_t hashstr(const char *str);							// generates a hash value of a string
-		void genhash(unsigned int **hashes, int i);					// generates hashes
+		uint64_t hashstr(const char *str);				// generates a hash value of a string
+		void genhash(unsigned int **hashes, int i);			// generates hashes
 
 };
