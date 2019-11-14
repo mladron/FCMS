@@ -1,6 +1,6 @@
 //
-// CMSF.hpp Count-Min Sketch with Fingerprints implemented by J. Martínez, this code used Daniel Alabi's Count-Min Sketch 
-// as a starting point https://github.com/alabid/countminsketch
+// CMSF.hpp Count-Min Sketch with Fingerprints implemented by J. MartÃ­nez, this code used Daniel Alabi's Count-Min Sketch 
+// as a starting point https://github.com/alabid/countminsketch 
 //
 // To improve accuracy of the counter, Count-Min Sketch stores a fingerprint of the last element x that has
 // updated the counter, where fingerprint is calculated as f(x, count)
